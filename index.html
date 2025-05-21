@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html>
-<body>
-  <h1>Live Streaming via Browser</h1>
-  <video id="webcam" autoplay playsinline width="50%"></video>
+  <head>
+    <title>Live Streaming via Browser</title>
+  </head>
+  <body>
+    <h1>Live Streaming via Browser</h1>
+    <video id="webcam" autoplay playsinline width="640" height="480" style="background: black;"></video>
 
-  <script>
-    const video = document.getElementById('webcam');
-    navigator.mediaDevices.getUserMedia({ video: true })
-      .then((stream) => {
-        video.srcObject = stream;
-      })
-      .catch((err) => {
-        console.error("Error accessing webcam:", err);
-      });
-  </script>
-</body>
+    <script>
+      const video = document.getElementById('webcam');
+
+      navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => {
+          video.srcObject = stream;
+        })
+        .catch(err => {
+          console.error("Error accessing webcam:", err);
+        });
+    </script>
+  </body>
 </html>
+
