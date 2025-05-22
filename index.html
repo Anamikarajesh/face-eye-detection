@@ -1,9 +1,25 @@
 <!DOCTYPE html>
 <html>
-    <body>
-        <h1>Live Streaming</h1>
-        <div>
-            <img src="{{url_for('video')}}"width='50%'>
-        </div>
-    </body>
+  <head>
+    <title>Live Streaming via Browser</title>
+  </head>
+  <body>
+    <h1>Live Streaming via Browser</h1>
+    <button onclick="startWebcam()">Start Webcam</button>
+    <br />
+    <video id="webcam" autoplay playsinline width="640" height="480" style="background: black;"></video>
+
+    <script>
+      function startWebcam() {
+        navigator.mediaDevices.getUserMedia({ video: true })
+          .then(stream => {
+            document.getElementById("webcam").srcObject = stream;
+          })
+          .catch(err => {
+            console.error("Webcam error:", err);
+            alert("Webcam error: " + err.message);
+          });
+      }
+    </script>
+  </body>
 </html>
