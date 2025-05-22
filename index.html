@@ -1,25 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Live Streaming via Browser</title>
+    <title>Live Streaming via Flask</title>
   </head>
   <body>
-    <h1>Live Streaming via Browser</h1>
-    <button onclick="startWebcam()">Start Webcam</button>
-    <br />
-    <video id="webcam" autoplay playsinline width="640" height="480" style="background: black;"></video>
-
-    <script>
-      function startWebcam() {
-        navigator.mediaDevices.getUserMedia({ video: true })
-          .then(stream => {
-            document.getElementById("webcam").srcObject = stream;
-          })
-          .catch(err => {
-            console.error("Webcam error:", err);
-            alert("Webcam error: " + err.message);
-          });
-      }
-    </script>
+    <h1>Live Video Stream</h1>
+    <img src="{{ url_for('video') }}" width="640" height="480" />
   </body>
 </html>
