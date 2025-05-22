@@ -10,8 +10,8 @@ def generate_frames():
         if not success:
             break
         else:
-            detector = cv2.CascadeClassifier('haarcascades/haarcascade_frontalface_default.xml')
-            eye_dectector = cv2.CascadeClassifier('haarcascades/haarcascade_eye.xml')
+            detector = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+            eye_dectector = cv2.CascadeClassifier('haarcascade_eye.xml')
             faces = detector.detectMultiScale(frame,1.1,7)
             gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
             for (x,y,w,h) in faces:
